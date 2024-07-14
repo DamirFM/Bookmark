@@ -26,17 +26,27 @@ model User {
   @@map("users")
 }
 
-// model Bookmark {
-//   id        Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
+model Bookmark {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-//   title       String
-//   description String?
-//   link        String
+  title       String
+  description String?
+  link        String
 
-//   userId Int
-//   user   User @relation(fields: [userId], references: [id])
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 
-//   @@map("bookmarks")
-// }
+  @@map("bookmarks")
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String @unique
+
+  @@map("tags")
+}
