@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
+import { PrismaModule } from "src/prisma/prisma.module";
 
 // @Module decorator is a function that takes a single object as an argument.
 // This object has a property called imports, which is an array of other modules that this module depends on.
@@ -9,5 +10,6 @@ import { AuthService } from "./auth.service";
 @Module({
     controllers: [AuthController],
     providers: [AuthService],
+    imports: [PrismaModule],
 })
 export class AuthModule {}
